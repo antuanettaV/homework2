@@ -1,29 +1,89 @@
-const yearOfBirth=1987;
-const yearFuture=2027;
-console.log(yearFuture-yearOfBirth);
-const message="You will be 40 years old in 2027";
-console.log(message);
-const dogYearOfBirth=1957;
-const dogYearFuture=2027;
-const dogYear=dogYearFuture-dogYearOfBirth;
-if (dogYear>50){
-console.log ('Your dog will be 10 human years old in 2027');
-} else if (dogYear=50) {
-console.log ('Your dog will be 70 dog years old in 2027');
-}   
-var height1=10;
-var deep1=10;
-var wide1=8;
-var gardensize1=100;
-console.log(height1*deep1*wide1*2.5*1000+gardensize1*300);
-var height2=8;
-var deep2=11;
-var wide2=5;
-var gardensize2=70;
-console.log(height2*deep2*wide2*2.5*1000+gardensize2*300);
-const firstWords = ["Easy", "Corporate","Awesome", "Phenomenal", "Spectacular", "Unbelievable", "Splendid", "Significant", "Startling", "Wonderful"];
-const secondWords = ["Team", "Company","Corporation", "Firm", "Proposition", "Opportunity", "Decision", "Solution", "Help", "Idea"];
-const randomName = Math.floor(Math.random() * 10);
-console.log(randomName);
-const startupName= 'The startup:"Spledid Decision contains 15 characters";'
-console.log(startupName);
+// Age-ify (A future age calculator)
+const yearOfBirth = 1987;
+const yearFuture = 2027;
+const age = yearFuture - yearOfBirth;
+console.log(`You will be ${age} years old in ${yearFuture}`);
+
+// Goodboy-Oldboy (A dog age calculator)
+const dogYearOfBirth = 2017;
+const dogYearFuture = 2027;
+let dogYear = dogYearFuture - dogYearOfBirth;
+const shouldShowResultInDogYears = true;
+
+if (shouldShowResultInDogYears) {
+    dogYear *= 7;
+    console.log(`Your dog will be ${dogYear} dog years old in ${dogYearFuture}`);
+} else {
+    console.log(`Your dog will be ${dogYear} human years old in ${dogYearFuture}`);
+}
+
+// Housey pricey (A house price estimator)
+function getHouseSize(width, height, depth) {
+    return width * height * depth;
+}
+
+function getHouseCost(houseSize, gardenSize) {
+    return houseSize * 2.5 * 1000 + gardenSize * 300;
+}
+
+const houses = [
+    {
+        friend: 'Peter',
+        size: getHouseSize(8, 10, 10),
+        gardenSize: 100,
+        estimatedCost: 2500000
+    },
+    {
+        friend: 'Julia',
+        size: getHouseSize(5, 8, 11),
+        gardenSize: 70,
+        estimatedCost: 1000000
+    }
+];
+
+houses.map(house => {
+    const houseCost = getHouseCost(house.size, house.gardenSize);
+    if (house.estimatedCost > houseCost) {
+        console.log(`${house.friend}, ${houseCost.toLocaleString()} is a fair price. The house estimated cost is ${house.estimatedCost.toLocaleString()}`);
+    } else {
+        console.log(`${house.friend}, ${houseCost.toLocaleString()} is too much. The house estimated cost is ${house.estimatedCost.toLocaleString()}`);
+    }
+})
+
+// Ez Namey (Startup name generator)
+const firstWords = [
+    "NextGen",
+    "Hyper",
+    "Ultra",
+    "Quantum",
+    "Synergy",
+    "Neon",
+    "Prime",
+    "Apex",
+    "Fusion",
+    "Infinity"
+  ];
+  
+  const secondWords = [
+    "Innovations",
+    "Dynamics",
+    "Solutions",
+    "Ventures",
+    "Labs", 
+    "Technologies",
+    "Concepts",
+    "Works",
+    "Systems",
+    "Industries"
+  ];
+
+
+  function getRandomIndex(arrayLength) {
+    return Math.floor(Math.random() * arrayLength);
+  }
+
+  const randomFirstIndex = getRandomIndex(firstWords.length);
+  const randomSecondIndex = getRandomIndex(secondWords.length);
+  const startupName = `${firstWords[randomFirstIndex]} ${secondWords[randomSecondIndex]}`;
+  
+  console.log(`The startup: "${startupName}" contains ${startupName.length} characters`);
