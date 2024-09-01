@@ -113,9 +113,10 @@ SELECT COUNT (*) FROM task WHERE due_date IS NULL;
 
 SHOW COLUMNS FROM task;
 
-SELECT * FROM task WHERE status_id != 'done';
+SELECT * FROM task WHERE status_id = 3;
 
-SELECT * FROM task WHERE status_id <> 'done' OR status_id IS NULL;
+
+SELECT * FROM task WHERE status_id != 3;
 
 SELECT * FROM task ORDER BY created DESC;
 
