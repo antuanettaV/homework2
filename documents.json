@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "name": "Pasta carbonara",
+        "price": "50",
+        "description": "spaghetti with bacon and a creamy sauce"
+    },
+    {
+        "id": 2,
+        "type": "doc",
+        "value": "hello world"
+    }
+]
