@@ -3,7 +3,6 @@ import fs from 'fs';
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Support parsing JSON requests
 app.use(express.json());
 
 // Specify the location of the JSON file
@@ -112,3 +111,4 @@ app.post('/search', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
