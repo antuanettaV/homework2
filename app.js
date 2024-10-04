@@ -1,11 +1,17 @@
 import express from 'express';
-import fs from 'fs';
+import fs from 'fs';  
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Support parsing JSON requests
 app.use(express.json());
 
+// Specify the location of the JSON file
 const documentsFilePath = './documents.json';
+
+app.get("/", (req, res) => {
+  res.send("This is a search engine");
+});
 
 app.get('/search', (req, res) => {
     const query = req.query.q;
@@ -18,7 +24,7 @@ app.get('/search', (req, res) => {
         const documents = JSON.parse(data);
 
         if (!query) {
-            return res.status(200).json(documents);
+            return res.status(200).json(documents); 
         }
 
         const filteredDocuments = documents.filter(doc => {
@@ -33,6 +39,10 @@ app.get('/search', (req, res) => {
 
 app.get('/documents/:id', (req, res) => {
     const documentId = parseInt(req.params.id);
+
+    if (isNaN(documentId)) {
+        return res.status(400).json({ error: 'Invalid document ID.' });
+    }
 
     fs.readFile(documentsFilePath, 'utf8', (err, data) => {
         if (err) {
@@ -50,14 +60,24 @@ app.get('/documents/:id', (req, res) => {
     });
 });
 
-
 app.post('/search', (req, res) => {
     const query = req.query.q;
     const fields = req.body.fields;
 
-    
     if (query && fields) {
         return res.status(400).json({ error: 'Cannot provide both query parameter and fields in the body.' });
+    }
+
+    if (fields && typeof fields !== 'object') {
+        return res.status(400).json({ error: 'Fields must be an object.' });
+    }
+
+    if (query === '') {
+        return res.status(400).json({ error: 'Query parameter cannot be empty.' });
+    }
+
+    if (fields && Object.keys(fields).length === 0) {
+        return res.status(400).json({ error: 'Fields object cannot be empty.' });
     }
 
     fs.readFile(documentsFilePath, 'utf8', (err, data) => {
@@ -66,7 +86,7 @@ app.post('/search', (req, res) => {
         }
 
         const documents = JSON.parse(data);
-        
+
         if (query) {
             const filteredDocuments = documents.filter(doc => {
                 return Object.values(doc).some(value =>
@@ -76,7 +96,7 @@ app.post('/search', (req, res) => {
             return res.status(200).json(filteredDocuments);
         }
 
-                if (fields) {
+        if (fields) {
             const filteredDocuments = documents.filter(doc => {
                 return Object.keys(fields).every(field => {
                     return String(doc[field]).toLowerCase() === String(fields[field]).toLowerCase();
@@ -85,7 +105,7 @@ app.post('/search', (req, res) => {
             return res.status(200).json(filteredDocuments);
         }
 
-            return res.status(200).json(documents);
+        return res.status(200).json(documents);
     });
 });
 
