@@ -1,4 +1,6 @@
-import knex from 'knex'
+import knex from 'knex';
+import express from 'express';
+
 const knexInstance = knex({
   client: "mysql2",
   connection: {
@@ -11,7 +13,6 @@ const knexInstance = knex({
   },
 });
 
-import express from 'express'
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -23,20 +24,22 @@ app.use("/api", apiRouter);
 const contactsAPIRouter = express.Router();
 apiRouter.use("/contacts", contactsAPIRouter);
 
-const allowedSort = ['first_name','last_name','email', 'phone', 'id'];
+const allowedSort = ['first_name', 'last_name', 'email', 'phone', 'id'];
 
 contactsAPIRouter.get("/", async (req, res) => {
   let query = knexInstance.select("*").from("contacts");
 
   if ("sort" in req.query) {
-    const orderBy = req.query.sort.toString();
+    const [column, direction] = req.query.sort.toString().split(" ");
+    const sortColumn = column;
+    const sortDirection = direction && direction.toUpperCase() === 'DESC' ? 'DESC' : 'ASC'; 
 
-    if (allowedSort.includes(orderBy)) {
-      query = query.orderBy(orderBy);
+    if (allowedSort.includes(sortColumn)) {
+      query = query.orderBy(sortColumn, sortDirection);
     } else {
-        return res.status (400).json ({error:"Invalid sort parameters"});
+      return res.status(400).json({ error: "Invalid sort parameters" });
+    }
   }
-}
 
   console.log("SQL", query.toSQL().sql);
 
