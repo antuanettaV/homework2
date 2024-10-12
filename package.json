@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
+    
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
@@ -20,3 +21,4 @@
   },
   "devDependencies": {}
 }
+

@@ -1,6 +1,7 @@
 .app {
-  background-color: black;
-  width: 100vw;
+  background-color: url('background-destination-desktop.jpg');
+  background-size: cover;
+  background-position: center;
   height: 100vh;
 }
 
@@ -10,3 +11,4 @@
   height: 400px;
 
 }
+
