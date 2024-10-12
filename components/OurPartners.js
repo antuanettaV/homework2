@@ -16,4 +16,7 @@ const OurPartners = () => {
   
   export default OurPartners;
 
+
+
+
   
