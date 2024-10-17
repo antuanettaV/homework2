@@ -3,10 +3,11 @@
 import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
 
-export const Footer = () => {
+const Footer = () => {
   const path = usePathname().split('?')[0];
+  console.log("Current path:", path);
   return (
-    <footer className={path !== "/" ? styles.footer : styles.hidden}>
+    <footer className={styles.footer}>
       <div className={styles.footerDescription}>
         <h3>Galactica</h3>
         <p>Explore the universe and beyond. Your journey to the stars starts here.</p>
@@ -54,3 +55,4 @@ export const Footer = () => {
     </footer>
   );
 }
+export default Footer;

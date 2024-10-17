@@ -2,10 +2,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { Navbar } from "@/components/ui/Navbar";
-import { Footer } from "@/components/ui/Footer";
-import OurValues from "@/components/ui/OurValues"; 
-import OurPartners from "@/components/ui/OurPartners";  
-import OurCrew from "@/components/ui/OurCrew";  
+import Footer from "@/components/ui/Footer";
+import OurValues from "@/components/OurValues/OurValues";
+import OurPartners from "@/components/OurPartners/OurPartners";
+import OurCrew from "@/components/OurCrew/OurCrew";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,8 +26,8 @@ export const RootLayout = ({ children }) => {
         <OurValues />
         <OurPartners />
         <OurCrew />
-         <Footer />
-          </body>
+        <Footer />
+      </body>
     </html>
   );
 };

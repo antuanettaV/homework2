@@ -48,3 +48,12 @@ p.heroJumbo {
   font-weight: 200;
   letter-spacing: 4px;
 }
+
+.our-values {
+  background-image: url('/home/background-home-desktop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  }
+  

@@ -1,0 +1,48 @@
+.ourPartners { /* Ensure correct class name here */
+    text-align: center; /* Center text */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Padding around the content */
+    background-image: url('/home/background-home-desktop.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the background image */
+    color: white; /* Text color */
+    border-radius: 10px; /* Optional: Rounded corners */
+  }
+  
+  .mainTitle { /* Ensure correct class name here */
+    font-size: 2.5rem; /* Main title size */
+    font-weight: bold; /* Bold font */
+    margin-bottom: 20px; /* Space below the title */
+  }
+  
+  .brandNames { /* Ensure correct class name here */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center the brand names */
+    gap: 20px; /* Space between brand names */
+  }
+  
+  .brandCard { /* New class for brand card */
+    display: flex; /* Flexbox to align image and text */
+    align-items: center; /* Center items vertically */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    padding: 10px; /* Padding inside each brand card */
+    border-radius: 5px; /* Rounded corners for brand cards */
+  }
+  
+  .brandImage {
+    width: 40px; /* Set desired width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+  }
+  
+  .brandName { /* Ensure correct class name here */
+    font-size: 1.5rem; /* Font size for brand names */
+    font-weight: bold; /* Bold font for brand names */
+    transition: transform 0.3s; /* Transition effect for hover */
+  }
+  
+  .brandName:hover { /* Ensure correct class name here */
+    transform: scale(1.05); /* Scale effect on hover */
+  }
+  
