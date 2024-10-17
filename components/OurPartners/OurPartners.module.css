@@ -1,0 +1,48 @@
+.ourPartners { /
+    text-align: center; 
+    margin: 20px auto; 
+    padding: 20px; 
+    background-image: url('/home/background-home-desktop.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    color: white; 
+    border-radius: 10px; 
+  }
+  
+  .mainTitle { 
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+  }
+  
+  .brandNames { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+  }
+  
+  .brandCard { 
+    display: flex; 
+    align-items: center; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 10px; 
+    border-radius: 5px; 
+  }
+  
+  .brandImage {
+    width: 40px; 
+    height: auto; 
+    margin-right: 10px; 
+  }
+  
+  .brandName { 
+    font-size: 1.5rem; 
+    font-weight: bold;
+    transition: transform 0.3s; 
+  }
+  
+  .brandName:hover { 
+    transform: scale(1.05); 
+  }
+  
