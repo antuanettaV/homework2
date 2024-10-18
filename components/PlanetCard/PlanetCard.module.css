@@ -1,0 +1,67 @@
+
+.planetCard {
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .planetCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .planetThumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .planetDescription {
+    margin-top: 15px;
+    color: #FFFFFF;
+  }
+  
+  .planetDescription h2 {
+    font-size: 1.5rem;
+    color: #FFD700; 
+  }
+  
+  .planetDescription p {
+    font-size: 1rem;
+    color: #E0E0E0;
+  }
+  
+  .roundButton {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #2E8B57; 
+    color: #FFFFFF;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .roundButton:hover {
+    background-color: #3CB371;
+  }
+  
+  .roundButton:active {
+    background-color: #2E8B57;
+  }
+  
+  .roundButton.isSelected {
+    background-color: #B22222; 
+  }
+  
+  .roundButton.isSelected:hover {
+    background-color: #CD5C5C;
+  }
+  

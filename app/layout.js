@@ -6,6 +6,9 @@ import Footer from "@/components/ui/Footer";
 import OurValues from "@/components/OurValues/OurValues";
 import OurPartners from "@/components/OurPartners/OurPartners";
 import OurCrew from "@/components/OurCrew/OurCrew";
+import PlanetCard from "@/components/PlanetCard/PlanetCard"; 
+import AddWishlistItem from '@/components/destination/AddWishlistItem';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +23,6 @@ export const RootLayout = ({ children }) => {
       <body className={inter.className}>
         <Navbar />
         {children}
-        {/* TASK - React 1 week 1 */}
-        {/* Import and use the Footer component here */}
-        {/* Footer found in the ui/Footer.js folder */}
         <OurValues />
         <OurPartners />
         <OurCrew />

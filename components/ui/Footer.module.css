@@ -43,6 +43,10 @@
   list-style-type: none;
 }
 
-.footerList li {
-  padding-block: var(--spacing-04);
+.footerList li img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
+
