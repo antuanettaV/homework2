@@ -3,23 +3,27 @@ import styles from "./OurCrew.module.css";
 const OurCrew = () => {
   const teamMembers = [
     {
-      name: "Anousheh Ansari",
-      title: "Founder + CEO",
+      name: "Sarah Vega",
+      title: "Captain",
+      description: "A former NASA astronaut with over 15 years of experience, Captain Vega leads our missions with unparalleled expertise and a passion for space exploration.",
       image: "/crew/image-anousheh-ansari.png",
     },
     {
-      name: "Douglas Hurley",
-      title: "Partner + Chief Creative Officer",
+      name: "Dr. Leo Redding",
+      title: "Our chief astrophysicist",
+      description: "Dr. Redding is a renowned scientist who has contributed to major space discoveries. He ensures that every journey is as educational as it is exhilarating.",
       image: "/crew/image-douglas-hurley.png",
     },
     {
-      name: "Mark Shuttleworth",
-      title: "CTO",
+      name: "Alex Santos",
+      title: "Mission Specialist",
+      description: "As a mission specialist, Alex’s job is to ensure that every aspect of the journey runs smoothly. With a background in both science and adventure tourism, Alex is the perfect guide for our space travelers.",
       image: "/crew/image-mark-shuttleworth.png",
     },
     {
       name: "Victor Glover",
-      title: "VP, Strategy",
+      title: "Chief Engineer",
+      description: "With his extensive background in aerospace engineering, Victor is responsible for the state-of-the-art technology that powers our spacecraft. His innovation ensures that our travelers are always in safe hands.",
       image: "/crew/image-victor-glover.png",
     },
   ];
@@ -29,9 +33,7 @@ const OurCrew = () => {
       <h1 className={styles.mainTitle}>Our Team</h1>
       <p>WHO WE ARE</p>
       <p>
-        We are a curated team of international experts united by a single goal:
-        to create category-defining brands and digital experiences that make an
-        impact, shape culture, and connect people.
+        Our crew is the heart and soul of Galactica. We are a diverse team of seasoned space explorers, engineers, and visionaries who are united by a common goal: to make space travel accessible and exciting for all.
       </p>
       <div className={styles.teamMembers}>
         {teamMembers.map((member, index) => (
@@ -43,6 +45,7 @@ const OurCrew = () => {
             />
             <p className={styles.name}>{member.name}</p>
             <p className={styles.jobTitle}>{member.title}</p>
+            <p className={styles.description}>{member.description}</p>
           </div>
         ))}
       </div>
@@ -51,4 +54,3 @@ const OurCrew = () => {
 };
 
 export default OurCrew;
-

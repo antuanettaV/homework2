@@ -1,11 +1,14 @@
-"use client"
+"use client"; 
 
 import { usePathname } from 'next/navigation';
 import styles from './Footer.module.css';
+import Link from 'next/link';
+import SocialMediaItem from './SocialMediaItem';
 
 const Footer = () => {
   const path = usePathname().split('?')[0];
   console.log("Current path:", path);
+  
   return (
     <footer className={styles.footer}>
       <div className={styles.footerDescription}>
@@ -25,34 +28,19 @@ const Footer = () => {
       </div> */}
       {/* Docs for the Link: https://nextjs.org/docs/pages/api-reference/components/link */}
 
-      {/* TASK - React 1 week 1 */}
-      {/* Add a new list item for LINKEDIN */}
+      
       <div className={styles.footerLinks}>
         <h3>Follow us</h3>
         <ul className={styles.footerList}>
-          <li>
-            <a href="https://facebook.com">Facebook</a>
-          </li>
-          <li>
-            <a href="https://instagram.com">Instagram</a>
-          </li>
-          <li>
-            <a href="https://tiktok.com">Tiktok</a>
-          </li>
-          <li>
-            <a href="https://linkedin.com">LinkedIn</a>
-          </li>
-          <li>
-            <a href="https://google.com">On the streets at night</a>
-          </li>
-          {/* TASK - React 1 week 2 */}
-          {/* Create a <SocialMediaItem /> component and replace all of the list items! */}
-          {/* it should accept the following props */}
-          {/* url, title, icon */}
-          {/* For the icons, you can download 1-2 social media icons for testing and put it in the /public/socialmedia/ folder */}
+          <SocialMediaItem url="https://facebook.com" title="Facebook" icon="/social_media/facebook.png" />
+          <SocialMediaItem url="https://instagram.com" title="Instagram" icon="/social_media/instagram.jfif" />
+          <SocialMediaItem url="https://tiktok.com" title="Tiktok" icon="/social_media/tiktok.png" />
+          <SocialMediaItem url="https://linkedin.com" title="LinkedIn" icon="/social_media/Linkedin.png" />
+          <SocialMediaItem url="https://google.com" title="On the streets at night" icon="/social_media/google.png" />
         </ul>
       </div>
     </footer>
   );
 }
+
 export default Footer;
