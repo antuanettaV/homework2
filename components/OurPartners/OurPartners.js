@@ -1,17 +1,15 @@
-import styles from "./OurPartners.module.css"; // Ensure you're importing the CSS module
+import styles from "./OurPartners.module.css"; 
 
 const OurPartners = () => {
   return (
     <div className={styles.ourPartners}>
-      {" "}
-      {/* Use styles.ourPartners */}
+            
       <h1 className={styles.mainTitle}>
         We collaborate with progressive, ambitious brands we believe in.
-      </h1>{" "}
-      {/* Use styles.mainTitle */}
+      </h1>
+      
       <div className={styles.brandNames}>
-        {" "}
-        {/* Use styles.brandNames */}
+                
         <div className={styles.brandCard}>
           <img
             src="/business_partners/amazon_logo.png"

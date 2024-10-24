@@ -1,0 +1,9 @@
+.socialMediaItem {
+    display: inline-block; 
+    margin-right: 10px;
+}
+
+.icon {
+    width: 24px; 
+    height: auto;
+}
