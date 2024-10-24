@@ -1,13 +1,13 @@
 "use client";
-import { useState } from 'react';
+
+import React, { useState } from 'react';
 import styles from '@/components/destination/destination.module.css';
 import PlanetWishlistItem from '@/components/destination/PlanetWishlistItem'; 
 import PlanetCard from '@/components/PlanetCard/PlanetCard'; 
 
-
 export const Destinations = () => {
   const [selectedPlanets, setSelectedPlanets] = useState([]);
-  const numberOfPlanets = selectedPlanets.length; // Directly derive the number of planets from state
+  const numberOfPlanets = selectedPlanets.length; 
 
   const onAddOrRemovePlanet = (name) => {
 
@@ -59,23 +59,24 @@ export const Destinations = () => {
             {/* Display the "no planets" message if it is empty! */}
             
             {numberOfPlanets === 0 ? (
-    <p>No planets in wishlist :(</p>
-  ) : (
-    <p>You have {numberOfPlanets} in your wishlist</p>
-  )}
+            <p>No planets in wishlist :(</p>
+          ) : (
+            <p>You have {numberOfPlanets} planet(s) in your wishlist</p>
+          )}
   
-  <div className={styles.wishlistList}>
-    {selectedPlanets.length > 0 && console.log("Selected planets:", selectedPlanets)}
-    {selectedPlanets.map((planet) => (
-      <PlanetWishlistItem
-        key={planet}  // Use planet name as the unique key
-        name={planet}
-        onRemove={() => onAddOrRemovePlanet(planet)}
-        thumbnail={`/destination/image-${planet.toLowerCase()}.png`}
-      />
-    ))}
-  </div>
-</section>
+          <div className={styles.wishlistList}>
+            {selectedPlanets.map((planetName) => {
+              const planet = planetData.find((p) => p.name === planetName);
+              return (
+                <PlanetWishlistItem
+                  key={planet.name}  
+                  name={planet.name}  
+                  thumbnail={planet.thumbnail}
+                />
+              );
+            })}
+          </div>
+        </section>
             
           {/* STOP! - this is for week 3!*/}
           {/* TASK - React 1 week 3 */}
@@ -101,29 +102,24 @@ export const Destinations = () => {
           </div> */}
         
         <section className="card">
-          <h2>Possible destinations</h2>
+          <h2>Possible Destinations</h2>
           {/* TASK - React 1 week 2 */}
           {/* Add all 4 planets! Europa, Moon, Mars, Titan  */}
           {/* Use the README.md file for descriptions */}
           {/* Create a <PlanetCard /> component, which accepts the following properties: */}
           {/* name, description, thumbnail, isSelected, onAddOrRemovePlanet */}
-          {planetData.map((planet, index) => {
+          {planetData.map((planet) => {
             const isPlanetSelected = selectedPlanets.includes(planet.name);
 
             return (
-              <div key={index} className={styles.planetCard}>
-                <img className={styles.planetThumbnail} src={planet.thumbnail} alt={planet.name} />
-                <div className={styles.planetDescription}>
-                  <h2>{planet.name} {isPlanetSelected ? "- SELECTED" : ""}</h2>
-                  <p>{planet.description}</p>
-                </div>
-                <button 
-                  className="roundButton" 
-                  onClick={() => onAddOrRemovePlanet(planet.name)}
-                >
-                  {isPlanetSelected ? "REMOVE" : "ADD PLANET"}
-                </button>
-              </div>
+              <PlanetCard
+                key={planet.name}  
+                name={planet.name}  
+                description={planet.description}  
+                thumbnail={planet.thumbnail} 
+                isSelected={isPlanetSelected}  
+                onAddOrRemovePlanet={() => onAddOrRemovePlanet(planet.name)}  
+              />
             );
           })}
         </section>
@@ -133,4 +129,3 @@ export const Destinations = () => {
 };
 
 export default Destinations;
-
