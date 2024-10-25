@@ -164,7 +164,7 @@ app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-// Specify the location of the JSON file
+
 const documentsFilePath = './documents.json';
 
 app.get("/", (req, res) => {
