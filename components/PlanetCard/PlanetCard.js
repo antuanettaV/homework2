@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './PlanetCard.module.css'; 
 
+
 const PlanetCard = ({ name, description, thumbnail, isSelected, onAddOrRemovePlanet }) => {
   return (
     <div className={styles.planetCard}>

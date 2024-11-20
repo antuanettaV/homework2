@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styles from '@/components/destination/destination.module.css';
 import PlanetWishlistItem from '@/components/destination/PlanetWishlistItem'; 
 import PlanetCard from '@/components/PlanetCard/PlanetCard'; 
+import AddWishlistItem from '@/components/destination/AddWishlistItem'; 
 
 export const Destinations = () => {
   const [selectedPlanets, setSelectedPlanets] = useState([]);
@@ -11,11 +12,7 @@ export const Destinations = () => {
 
   const onAddOrRemovePlanet = (name) => {
 
-    // TASK - React 1 week 2
-    // Implement this function
-    // If you press the "ADD PLANET" the selected planet should display "SELECTED"
-    // And the counter should update, how many planets are selected (numberOfPlanets)
-    
+       
     const planetIndex = selectedPlanets.indexOf(name);
     
     if (planetIndex === -1) {
@@ -55,9 +52,7 @@ export const Destinations = () => {
         
         <section className="card">
           <h2>Wishlist</h2>
-            {/* Display the number of selected planets */}
-            {/* Display the "no planets" message if it is empty! */}
-            
+                       
             {numberOfPlanets === 0 ? (
             <p>No planets in wishlist :(</p>
           ) : (
@@ -103,11 +98,6 @@ export const Destinations = () => {
         
         <section className="card">
           <h2>Possible Destinations</h2>
-          {/* TASK - React 1 week 2 */}
-          {/* Add all 4 planets! Europa, Moon, Mars, Titan  */}
-          {/* Use the README.md file for descriptions */}
-          {/* Create a <PlanetCard /> component, which accepts the following properties: */}
-          {/* name, description, thumbnail, isSelected, onAddOrRemovePlanet */}
           {planetData.map((planet) => {
             const isPlanetSelected = selectedPlanets.includes(planet.name);
 
