@@ -1,5 +1,7 @@
 potatoes
 carrots
-cucumber
+cabbage
 tomato
 beet
+onion
+eggplant
